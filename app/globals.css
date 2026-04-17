@@ -143,6 +143,43 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes infibite-ticker-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes infibite-ticker-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.infibite-ticker-up {
+  animation-name: infibite-ticker-up;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.infibite-ticker-down {
+  animation-name: infibite-ticker-down;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infibite-ticker-up,
+  .infibite-ticker-down {
+    animation-duration: 180s !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
